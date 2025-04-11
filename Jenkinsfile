@@ -27,6 +27,12 @@ pipeline {
                 robot outputPath: 'results'
             }
         }
+
+        stage('publish to xray') {
+            steps {
+                step([$class: 'XrayImportBuilder', endpointName: '/robot', importFilePath: 'result/output.xml', serverInstance: 'b1ddff7d-c750-42dd-8ab6-9534e5db8315'])
+            }
+        }
     }
 
     post {
@@ -35,4 +41,6 @@ pipeline {
             junit 'results/xunit.xml'
         }
     }
+
+    
 }
