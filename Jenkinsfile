@@ -16,7 +16,7 @@ pipeline {
         stage('run tests') {
             steps {
                 sh '''
-                    source ./venv/bin/activate
+                    . ./venv/bin/activate
                     robot --outputdir results --xunit xunit.xml tests/
                 '''
             }

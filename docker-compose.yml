@@ -29,7 +29,7 @@ services:
       - ./data/postgres:/var/lib/postgresql/data 
 
   jenkins:
-    image: jenkins/jenkins:lts
+    build: ./jenkins
     container_name: jenkins
     ports:
       - "8081:8080"
