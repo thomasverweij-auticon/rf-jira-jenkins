@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  jira:
+    image: atlassian/jira-software:10.4
+    container_name: jira
+    depends_on: 
+      - postgres
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: postgres
+      DB_PORT: 5432
+      DB_NAME: jiradb
+      DB_USER: jira
+      DB_PASSWORD: jirapassword
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./data/jira:/var/atlassian/application-data/jira
+
+  postgres:
+    image: postgres:13
+    container_name: jira-postgres
+    environment:
+      POSTGRES_USER: jira
+      POSTGRES_PASSWORD: jirapassword
+      POSTGRES_DB: jiradb
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data 
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8081:8080"
+      - "50000:50000"
+    volumes:
+      - ./data/jenkins:/var/jenkins_home
