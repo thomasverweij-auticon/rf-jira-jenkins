@@ -30,7 +30,7 @@ pipeline {
 
         stage('publish to xray') {
             steps {
-                step([$class: 'XrayImportBuilder', endpointName: '/robot', projectKey: 'XRAYT', importFilePath: 'results/output.xml', serverInstance: 'b1ddff7d-c750-42dd-8ab6-9534e5db8315'])
+                step([$class: 'XrayImportBuilder', endpointName: '/robot', projectKey: 'XRAYT', importToSameExecution: 'true', importFilePath: 'results/output.xml', serverInstance: 'b1ddff7d-c750-42dd-8ab6-9534e5db8315'])
             }
         }
     }
