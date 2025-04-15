@@ -13,11 +13,17 @@ pipeline {
             }
         }
 
+        stage('publish to xray') {
+            steps {
+                step([$class: 'XrayExportBuilder', issues: 'XRAYT-2', filePath: '/xray', serverInstance: 'b1ddff7d-c750-42dd-8ab6-9534e5db8315'])
+            }
+        }
+
         stage('run tests') {
             steps {
                 sh '''
                     . ./venv/bin/activate
-                    robot --outputdir results --xunit xunit.xml tests/
+                    robot --outputdir results --xunit xunit.xml xray/
                 '''
             }
         }
