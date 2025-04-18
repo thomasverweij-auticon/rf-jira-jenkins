@@ -5,5 +5,5 @@ Library    Browser
 Test1
     [Tags]    XRAYT-8
     New Browser        headless=True
-    Go To               url=https://example.com/
+    New Page               url=https://example.com/
     Take Screenshot
