@@ -9,8 +9,7 @@ pipeline {
                     . ./venv/bin/activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
-                    rfbrowser init chromium
-                    npx playwright install-deps
+                    rfbrowser init --skip-browsers
                 '''
             }
         }
@@ -19,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                     . ./venv/bin/activate
-                    robot --outputdir results --xunit xunit.xml --nostatusrc tests/
+                    PLAYWRIGHT_BROWSERS_PATH=$HOME/pw-browsers robot --outputdir results --xunit xunit.xml --nostatusrc tests/
                 '''
             }
         }
