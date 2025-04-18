@@ -1,5 +1,9 @@
+*** Settings ***
+Library    Browser
+
 *** Test Cases ***
 Test1
     [Tags]    XRAYT-8
-    Sleep  10s
-    Log    Hello World
+    Open Browser        headless=True
+    Go To               url=https://example.com/
+    Take Screenshot
