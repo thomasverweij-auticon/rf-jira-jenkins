@@ -11,7 +11,6 @@ RUN apt-get update && \
     apt-get install -y nodejs && \
     npm install -g npm && \
     npx playwright install-deps && \
-    mkdir -p /opt/pw-browsers && \
     apt-get clean
 
 RUN chown -R jenkins:jenkins /var/jenkins_home

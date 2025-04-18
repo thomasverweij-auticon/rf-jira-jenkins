@@ -17,9 +17,9 @@ pipeline {
             steps {
                 sh '''
                     . ./venv/bin/activate
-                    rfbrowser init --skip-browsers
-                    PLAYWRIGHT_BROWSERS_PATH=/var/jenkins_home/pw-browsers npx playwright install
-                    PLAYWRIGHT_BROWSERS_PATH=/var/jenkins_home/pw-browsers robot --outputdir results --xunit xunit.xml --nostatusrc tests/
+                    export PLAYWRIGHT_BROWSERS_PATH=/var/jenkins_home/pw-browsers
+                    rfbrowser init chromium
+                    robot --outputdir results --xunit xunit.xml --nostatusrc tests/
                 '''
             }
         }
