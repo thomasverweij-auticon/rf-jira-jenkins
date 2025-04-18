@@ -8,7 +8,8 @@ RUN apt-get update && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     curl -fsSL https://deb.nodesource.com/setup_22.x | bash - && \
     apt-get install -y nodejs && \
+    npm install -g npm && \
     apt-get clean
 
+
 RUN chown -R jenkins:jenkins /var/jenkins_home
-USER jenkins
