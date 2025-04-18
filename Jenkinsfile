@@ -10,6 +10,7 @@ pipeline {
                     pip install --upgrade pip
                     pip install -r requirements.txt
                     rfbrowser init chromium
+                    npx playwright install-deps
                 '''
             }
         }
