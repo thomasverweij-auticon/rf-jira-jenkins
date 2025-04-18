@@ -9,7 +9,6 @@ pipeline {
                     . ./venv/bin/activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
-                    rfbrowser init --skip-browsers
                 '''
             }
         }
@@ -18,6 +17,7 @@ pipeline {
             steps {
                 sh '''
                     . ./venv/bin/activate
+                    rfbrowser init --skip-browsers
                     PLAYWRIGHT_BROWSERS_PATH=$HOME/pw-browsers robot --outputdir results --xunit xunit.xml --nostatusrc tests/
                 '''
             }
