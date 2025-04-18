@@ -9,7 +9,7 @@ pipeline {
                     . ./venv/bin/activate
                     pip install --upgrade pip
                     pip install -r requirements.txt
-                    rfbrowser init --with-deps chromium
+                    rfbrowser init chromium
                 '''
             }
         }
