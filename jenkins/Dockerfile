@@ -12,7 +12,7 @@ RUN apt-get update && \
     npx playwright install-deps && \
     apt-get clean
 
-RUN PLAYWRIGHT_BROWSERS_PATH=/var/pw-browsers npx playwright install --with-deps 
+RUN mkdir -p /var/jenkins_home/pw-browsers && PLAYWRIGHT_BROWSERS_PATH=/var/jenkins_home/pw-browsers npx playwright install --with-deps 
 
 
 RUN chown -R jenkins:jenkins /var/jenkins_home

@@ -18,7 +18,7 @@ pipeline {
                 sh '''
                     . ./venv/bin/activate
                     rfbrowser init --skip-browsers
-                    PLAYWRIGHT_BROWSERS_PATH=/var/pw-browsers robot --outputdir results --xunit xunit.xml --nostatusrc tests/
+                    PLAYWRIGHT_BROWSERS_PATH=/var/jenkins_home/pw-browsers robot --outputdir results --xunit xunit.xml --nostatusrc tests/
                 '''
             }
         }
