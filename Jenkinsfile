@@ -18,7 +18,7 @@ pipeline {
             steps {
                 sh '''
                     . ./venv/bin/activate
-                    robot --outputdir results --xunit xunit.xml tests/
+                    robot --outputdir results --xunit xunit.xml --nostatusrc tests/
                 '''
             }
         }
