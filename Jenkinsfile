@@ -17,8 +17,6 @@ pipeline {
             steps {
                 sh '''
                     . ./venv/bin/activate
-                    export PLAYWRIGHT_BROWSERS_PATH=/var/jenkins_home/pw-browsers
-                    rfbrowser init chromium
                     robot --outputdir results --xunit xunit.xml --nostatusrc tests/
                 '''
             }
