@@ -1,5 +1,5 @@
 *** Test Cases ***
 Test2
-    [Tags]    XRAYT-10
+    [Tags]    TEST-1
     Sleep  10s
     Log    Hello World xyz
